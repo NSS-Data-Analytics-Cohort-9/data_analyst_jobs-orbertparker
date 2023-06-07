@@ -5,7 +5,10 @@ SELECT COUNT (*)
 FROM data_analyst_jobs;
 */
 
+--Answer: 1793
+
 --2.	Write a query to look at just the first 10 rows. What company is associated with the job posting on the 10th row?
+
 /*
 SELECT *
 FROM data_analyst_jobs
@@ -15,7 +18,6 @@ LIMIT 10;
 */
 
 --3.	How many postings are in Tennessee? How many are there in either Tennessee or Kentucky?
-
 
 /*
 SELECT COUNT(location)
@@ -111,9 +113,10 @@ ORDER BY average_rating DESC;
 
 /*
 SELECT DISTINCT title
-FROM data_analyst_jobs;
+FROM data_analyst_jobs
+WHERE title LIKE '%Analyst%';
 
---Answer: 881
+--Answer: 754
 */
 
 --12.	How many different job titles do not contain either the word ‘Analyst’ or the word ‘Analytics’? What word do these positions have in common?
@@ -121,9 +124,9 @@ FROM data_analyst_jobs;
 /*
 SELECT title
 FROM data_analyst_jobs
-WHERE title NOT LIKE '%Analyst%' AND title NOT LIKE '%Analytics%';
+WHERE LOWER(title) NOT LIKE '%analyst%' AND LOWER(title) NOT LIKE '%analytics%';
 
---Answer: The words "analyst" and "analytics" are either in all caps or all lowercase.
+--Answer: Tableau
 */
 
 --BONUS
